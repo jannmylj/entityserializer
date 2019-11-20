@@ -1,0 +1,25 @@
+{
+  "name": "jannmylj/entityserializer",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "description": "Copy of EntitySerializer class. By Boris Guéry",
+  "keywords": [
+    "template",
+    "minimalist"
+  ],
+  "require": {
+    "php": "^7"
+  },
+  "homepage": "https://github.com/jannmylj/entityserializer",
+  "authors": [
+    {
+      "name": "Jann Mylj",
+      "email": "jannmylj@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "jannmylj\\entityserializer\\": "src/"
+    }
+  }
+}
