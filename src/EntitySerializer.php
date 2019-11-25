@@ -132,7 +132,7 @@ class EntitySerializer
      */
     public function toXml($entity)
     {
-        throw new Exception('Not yet implemented');
+        throw new \Exception('Not yet implemented');
     }
     /**
      * Set the maximum recursion depth
