@@ -20,7 +20,7 @@ namespace jannmylj\entityserializer;
  * @see         https://gist.github.com/1034079#file_serializable_entity.php
  */
 use Doctrine\ORM\Mapping\ClassMetadata,
-    Doctrine\Common\Util\Inflector,
+    Doctrine\Common\Inflector\Inflector,
     Doctrine\ORM\EntityManager;
 
 class EntitySerializer
