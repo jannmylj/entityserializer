@@ -8,8 +8,8 @@
     "minimalist"
   ],
   "require": {
-    "php"           : "^7",
-    "doctrine/orm"  : "2.7.*"
+    "php"           : "^8",
+    "doctrine/orm"  : "2.8.*"
   },
   "homepage": "https://github.com/jannmylj/entityserializer",
   "authors": [

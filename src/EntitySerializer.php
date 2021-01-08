@@ -20,8 +20,8 @@ namespace jannmylj\entityserializer;
  * @see         https://gist.github.com/1034079#file_serializable_entity.php
  */
 use Doctrine\ORM\Mapping\ClassMetadata,
-    Doctrine\Common\Inflector\Inflector,
-    Doctrine\ORM\EntityManager;
+    Doctrine\ORM\EntityManager,
+    Doctrine\Inflector\InflectorFactory;
 
 class EntitySerializer
 {
@@ -37,9 +37,15 @@ class EntitySerializer
      * @var int
      */
     protected $_maxRecursionDepth = 0;
+    /**
+     * @var Doctrine\Inflector\Inflector
+     */
+    protected $_inflector;
+    
     public function __construct($em)
     {
         $this->setEntityManager($em);
+        $this->_inflector = InflectorFactory::create()->build();
     }
     /**
      *
@@ -61,7 +67,7 @@ class EntitySerializer
         $data = array();
         foreach ($metadata->fieldMappings as $field => $mapping) {
             $value = $metadata->reflFields[$field]->getValue($entity);
-            $field = Inflector::tableize($field);
+            $field = $this->_inflector->tableize($field);
             if ($value instanceof \DateTime) {
                 // We cast DateTime to array to keep consistency with array result
                 $data[$field] = (array)$value;
@@ -72,7 +78,7 @@ class EntitySerializer
             }
         }
         foreach ($metadata->associationMappings as $field => $mapping) {
-            $key = Inflector::tableize($field);
+            $key = $this->_inflector->tableize($field);
             if ($mapping['isCascadeDetach']) {
                 $data[$key] = $metadata->reflFields[$field]->getValue($entity);
                 if (null !== $data[$key]) {
