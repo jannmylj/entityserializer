@@ -2,7 +2,7 @@
   "name": "jannmylj/entityserializer",
   "type": "project",
   "license": "GPL-2.0-or-later",
-  "description": "Copy of EntitySerializer class. By Boris Guéry",
+  "description": "Copy of EntitySerializer class. By Boris Guéry. Update to manage Doctrine evolution.",
   "keywords": [
     "template",
     "minimalist"
